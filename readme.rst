@@ -1,3 +1,9 @@
+## Using xampp
+## You need to change permissions or ownership of htdocs directory. To change the permissions use the chmod command, for example:
+
+- `sudo chmod -R 755 /opt/lampp/htdocs`
+
+
 ###################
 What is CodeIgniter
 ###################
