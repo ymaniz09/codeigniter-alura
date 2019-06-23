@@ -1,8 +1,18 @@
-## Using xampp
-### You'll need to change permissions or ownership of htdocs directory. To change the permissions use the chmod command, for example:
+# A simple test of [CodeIgniter](https://codeigniter.com/) PHP framework
 
-- `sudo chmod -R 755 /opt/lampp/htdocs`
+## This project uses XAMPP to run locally
 
+- After setting up [XAMPP](https://www.apachefriends.org/pt_br/index.html) on your environment, you'll need to create a folder inside htdocs and copy this repo inside of it. On Ubuntu(19.04) htdocs may be found at /opt/lampp/htdocs. 
+- You'll need to change permissions or ownership of htdocs directory. To change the permissions use the chmod command, for example: `sudo chmod -R 755 /opt/lampp/htdocs`
+- This project will be available at: `localhost:<the port defined on Apache>/<name of the folder you place this project>`
+
+## MySQL setup
+
+- Open phpMyAdmin `http://localhost:<the port defined on Apache>/phpmyadmin`
+- Create the dataset `store`
+- The default user could be change on [database.php](https://github.com/ymaniz09/codeigniter-alura/blob/master/application/config/database.php)
+- Run [dabase.v1.sql](https://github.com/ymaniz09/codeigniter-alura/blob/master/application/temp/dabase.v1.sql) to create the tables
+- Run [populatingDatabase.sql](https://github.com/ymaniz09/codeigniter-alura/blob/master/application/temp/populatingDatabase.sql) to populate its tables
 
 
 ### What is CodeIgniter
