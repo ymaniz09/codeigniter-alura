@@ -21,7 +21,10 @@
             <?php foreach ($products as $product) : ?>
                 <tr>
                     <td>
-                        <?= anchor("products/show?id={$product['id']}", $product['name'])?>
+                        <?= anchor("products/{$product['id']}", $product['name'])?>
+                    </td>
+                    <td>
+                        <?= character_limiter($product['description'], 10) ?>
                     </td>
                     <td>
                         <?= toBrazilMoney($product['price']) ?>

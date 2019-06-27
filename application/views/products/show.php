@@ -10,7 +10,7 @@
             <br/>
         </h1>
         Price: <?= $product["price"] ?><br/>
-        <?= auto_typography($product["description"]) ?><br/>
+        <?= auto_typography(html_escape($product["description"])) ?><br/>
     </div>
 
 </body>
