@@ -38,4 +38,15 @@ class Products extends CI_Controller
         redirect("/");
     }
 
+    public function show()
+    {
+        $id = $this->input->get("id");
+        $this->load->model("ProductsModel");
+        $product = $this->ProductsModel->fetchById($id);
+
+        $data =  ["product" => $product];
+
+        $this->load->helper("typography");
+        $this->load->view("products/show", $data);
+    }
 }

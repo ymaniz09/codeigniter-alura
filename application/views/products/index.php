@@ -20,8 +20,12 @@
         <table class="table">
             <?php foreach ($products as $product) : ?>
                 <tr>
-                    <td><?= $product['name'] ?></td>
-                    <td><?= toBrazilMoney($product['price']) ?></td>
+                    <td>
+                        <?= anchor("products/show?id={$product['id']}", $product['name'])?>
+                    </td>
+                    <td>
+                        <?= toBrazilMoney($product['price']) ?>
+                    </td>
                 </tr>
 
             <?php endforeach; ?>
