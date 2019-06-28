@@ -23,8 +23,9 @@ class Products extends CI_Controller
     public function new()
     {
         $this->load->library('form_validation');
-        $this->form_validation->set_rules("name", "name", "trim|required|min_length(5)");
-        $this->form_validation->set_rules("description", "description", "trim|required|min_length(10)");
+        $this->form_validation->set_rules("name", "name", "trim|required|min_length[5]");
+        $this->form_validation->set_rules("description", "description",
+            "trim|required|min_length(10)|callback_does_not_contain_best");
         $this->form_validation->set_rules("price", "price", "required");
         $this->form_validation->set_error_delimiters("<p class='alert alert-danger'>" ,"</p>");
 
@@ -58,5 +59,16 @@ class Products extends CI_Controller
 
         $this->load->helper("typography");
         $this->load->view("products/show", $data);
+    }
+
+    public function does_not_contain_best($name)
+    {
+        $pos = strpos($name, "best");
+        if ($pos != FALSE) {
+            return TRUE;
+        } else {
+            $this->form_validation->set_message("does_not_contain_best", "This field should no contain best");
+            return FALSE;
+        }
     }
 }
