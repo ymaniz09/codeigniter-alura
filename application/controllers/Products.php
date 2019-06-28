@@ -22,20 +22,31 @@ class Products extends CI_Controller
 
     public function new()
     {
-        $user = $this->session->userdata("signedUser");
-        $product = [
-            "name" => $this->input->post("name"),
-            "description" => $this->input->post("description"),
-            "price" => $this->input->post("price"),
-            "users_id" => $user["id"]
-        ];
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules("name", "name", "trim|required|min_length(5)");
+        $this->form_validation->set_rules("description", "description", "trim|required|min_length(10)");
+        $this->form_validation->set_rules("price", "price", "required");
+        $this->form_validation->set_error_delimiters("<p class='alert alert-danger'>" ,"</p>");
 
-        $this->load->model("ProductsModel");
-        $this->ProductsModel->save($product);
+        if ($this->form_validation->run()) {
+            $user = $this->session->userdata("signedUser");
+            $product = [
+                "name" => $this->input->post("name"),
+                "description" => $this->input->post("description"),
+                "price" => $this->input->post("price"),
+                "users_id" => $user["id"]
+            ];
 
-        $this->session->set_flashdata("success", "successfully added");
+            $this->load->model("ProductsModel");
+            $this->ProductsModel->save($product);
 
-        redirect("/");
+            $this->session->set_flashdata("success", "successfully added");
+
+            redirect("/");
+        } else {
+            $this->load->view("products/form.php");
+        }
+
     }
 
     public function show($id)
