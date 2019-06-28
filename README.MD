@@ -3,9 +3,8 @@
 ## This project uses XAMPP to run locally
 
 
-- After setting up [XAMPP](https://www.apachefriends.org/pt_br/index.html) on your environment, you'll need to create a folder inside htdocs and copy this repo inside of it. On Ubuntu(19.04) htdocs may be found at /opt/lampp/htdocs. 
-- You'll need to change permissions or ownership of htdocs directory. To change the permissions use the chmod command, for example: `sudo chmod -R 755 /opt/lampp/htdocs`
-- This project will be available at: `localhost:<the port defined on Apache>/<name of the folder you place this project>`
+- After setting up [XAMPP](https://www.apachefriends.org/pt_br/index.html) on your environment, you may clone this repo inside the htdocs folder. On Ubuntu(19.04) htdocs may be found at /opt/lampp/htdocs. 
+- This project will be available at: `localhost:<the port defined on Apache>/codeigniter-alura
 
 ## MySQL setup
 
